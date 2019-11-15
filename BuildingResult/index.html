@@ -24,9 +24,10 @@
     var unityInstance = UnityLoader.instantiate("unityContainer", "Build/BuildingResult.json", { onProgress: UnityProgress });
 
     function f1(position) {
+      alert("123")
       console.log("f1執行")
       console.log(position.coords.latitude)
-      unityInstance.SendMessage("WebTest", "Ctrl", "1");
+      unityInstance.SendMessage("WebTest", "Ctrl", position.coords.latitude.toString());
     }
   </script>
 </head>
@@ -39,6 +40,7 @@
       <script>
           navigator.geolocation.getCurrentPosition(f1);
           function successCallback(position) {
+            
             console.log(position)
             /*document.write("緯度" + position.coords.latitude + "<br>");
             document.write("經度" + position.coords.longitude + "<br>");
