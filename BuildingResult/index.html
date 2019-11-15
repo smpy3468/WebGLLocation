@@ -24,7 +24,7 @@
     var unityInstance = UnityLoader.instantiate("unityContainer", "Build/BuildingResult.json", { onProgress: UnityProgress });
 
     function f1(position) {
-      alert("123")
+      alert(position.coords.latitude)
       console.log("f1執行")
       console.log(position.coords.latitude)
       unityInstance.SendMessage("WebTest", "Ctrl", position.coords.latitude.toString());
