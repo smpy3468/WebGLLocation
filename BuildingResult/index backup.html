@@ -26,7 +26,11 @@
     function f1(position) {
       console.log("f1執行")
       console.log(position.coords.latitude)
-      unityInstance.SendMessage("WebTest", "Ctrl", position.coords.altitude.toString());
+      var latitude = position.coords.latitude.toString();
+      var longitude = position.coords.longitude.toString();
+      var altitude = position.coords.altitude.toString();
+      var positionData = {"latitude":latitude,"longitude":longitude,"altitude":altitude};
+      unityInstance.SendMessage("WebTest", "Ctrl", JSON.stringify(positionData));
     }
   </script>
 </head>
@@ -34,7 +38,7 @@
 <body>
   <div class="webgl-content">
     <div id="unityContainer" style="width: 960px; height: 600px"></div>
-
+    <button type="button" onclick="navigator.geolocation.getCurrentPosition(f1)">我是按鈕</button>
     <div id="main">
       <script>
           navigator.geolocation.getCurrentPosition(f1);
