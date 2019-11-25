@@ -26,9 +26,9 @@
     function f1(position) {
       console.log("f1執行")
       console.log(position.coords.latitude)
-      var latitude = position.coords.latitude.toString();
-      var longitude = position.coords.longitude.toString();
-      var altitude = position.coords.altitude.toString();
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      var altitude = position.coords.altitude;
       var positionData = {"latitude":latitude,"longitude":longitude,"altitude":altitude};
       unityInstance.SendMessage("WebTest", "Ctrl", JSON.stringify(positionData));
     }
